@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+}
+
 body {
   margin: 0;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1580px;
   margin: 0 auto;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1480px) {
     padding: 0 20px;
   }
 }
