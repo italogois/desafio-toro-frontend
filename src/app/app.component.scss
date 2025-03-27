@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 0;
+  padding: 60px 0;
 
   @media (max-width: 780px) {
     flex-direction: column;
@@ -57,4 +57,10 @@
       }
     }
   }
+}
+
+.quote-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
 }

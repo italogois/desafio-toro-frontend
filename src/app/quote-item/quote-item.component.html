@@ -1,0 +1,29 @@
+<div class="quote-item">
+  <div class="quote-content">
+    <div class="quote-stock-market">
+      <div
+        class="quote-stock-market__name"
+        data-test="quote-stock-market-name">
+        BBDC4
+      </div>
+    </div>
+
+    <div class="active-price">
+      <div
+        class="active-price__label"
+        data-test="active-price-label">
+        Preço do ativo
+      </div>
+
+      <div
+        class="active-price__value price-up"
+        data-test="active-price-value">
+        {{ `2.78` | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+      </div>
+    </div>
+  </div>
+
+  <img
+    src="/quote-item-footer.png"
+    alt="quote grafico do ativo" />
+</div>

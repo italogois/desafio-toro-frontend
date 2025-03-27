@@ -1,0 +1,51 @@
+.quote-item {
+  border: 1px solid #d1d5d7;
+
+  img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .quote-content {
+    padding: 40px;
+
+    .quote-stock-market {
+      margin-bottom: 30px;
+
+      &__name {
+        font-size: 14px;
+        color: #7f868e;
+        text-transform: uppercase;
+      }
+    }
+
+    .active-price {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &__label {
+        font-size: 14px;
+        color: #081827;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      &__value {
+        font-size: 30px;
+        font-weight: 700;
+        color: #101828;
+
+        &.price-up {
+          color: #00c854;
+        }
+
+        &.price-down {
+          color: #f44336;
+        }
+      }
+    }
+  }
+}
