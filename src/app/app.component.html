@@ -14,13 +14,17 @@
       <div class="buttons">
         <button
           class="ordenation-button"
-          data-test="ordenation-button-em-alta">
+          [class.active]="sort === 'em-alta'"
+          data-test="ordenation-button-em-alta"
+          (click)="sortBy('em-alta')">
           Em Alta
         </button>
 
         <button
           class="ordenation-button"
-          data-test="ordenation-button-em-baixa">
+          [class.active]="sort === 'em-baixa'"
+          data-test="ordenation-button-em-baixa"
+          (click)="sortBy('em-baixa')">
           Em Baixa
         </button>
       </div>

@@ -2,6 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { QuoteItemComponent } from './quote-item/quote-item.component';
 import { QuoteService } from './service/quote.service';
+import { Sort } from './types/sort';
+import { QuoteItem, QuoteResponse } from './types/quote';
+
 @Component({
   selector: 'app-root',
   imports: [HeaderComponent, QuoteItemComponent],
@@ -11,28 +14,50 @@ import { QuoteService } from './service/quote.service';
 export class AppComponent implements OnInit {
   quoteService = inject(QuoteService);
 
-  quotes: any[] = [];
+  quotes: QuoteItem[] = [];
+  sort: Sort = 'em-alta';
 
-  ngOnInit() {
-    this.quoteService.connect().subscribe((quote: any) => {
-      const quoteKeys = Object.keys(quote)[0];
-      const stockData = quote[quoteKeys];
+  sortBy(sortParam: Sort) {
+    this.sort = sortParam;
+  }
 
-      console.log(stockData);
+  sortQuotes(quotes: QuoteItem[]) {
+    if (this.sort === 'em-alta') {
+      quotes.sort((a, b) => b.price - a.price);
+    } else {
+      quotes.sort((a, b) => a.price - b.price);
+    }
 
-      const transformedQuote = {
-        stockMarket: quoteKeys,
-        price: quote[quoteKeys],
+    return quotes;
+  }
+
+  addQuote(transformedQuote: QuoteItem) {
+    const existingQuoteIndex = this.quotes.findIndex((q) => q.stockMarket === transformedQuote.stockMarket);
+
+    if (existingQuoteIndex !== -1) {
+      this.quotes[existingQuoteIndex] = transformedQuote;
+    } else {
+      this.quotes.push(transformedQuote);
+    }
+
+    this.quotes = this.sortQuotes(this.quotes);
+  }
+
+  initQuoteWebSocket() {
+    this.quoteService.connect().subscribe((quote: QuoteResponse) => {
+      const quoteKey = Object.keys(quote)[0];
+
+      const transformedQuote: QuoteItem = {
+        stockMarket: quoteKey,
+        price: quote[quoteKey],
         timestamp: quote.timestamp,
       };
 
-      const existingQuoteIndex = this.quotes.findIndex((q) => q.stockMarket === transformedQuote.stockMarket);
-
-      if (existingQuoteIndex !== -1) {
-        this.quotes[existingQuoteIndex] = transformedQuote;
-      } else {
-        this.quotes.push(transformedQuote);
-      }
+      this.addQuote(transformedQuote);
     });
+  }
+
+  ngOnInit() {
+    this.initQuoteWebSocket();
   }
 }
