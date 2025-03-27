@@ -28,10 +28,8 @@
   </div>
 
   <div class="quote-items">
-    <app-quote-item />
-    <app-quote-item />
-    <app-quote-item />
-    <app-quote-item />
-    <app-quote-item />
+    @for (quote of quotes; track quote.timestamp) {
+      <app-quote-item [quote]="quote" />
+    }
   </div>
 </main>

@@ -4,7 +4,7 @@
       <div
         class="quote-stock-market__name"
         data-test="quote-stock-market-name">
-        BBDC4
+        {{ quote.stockMarket }}
       </div>
     </div>
 
@@ -18,7 +18,7 @@
       <div
         class="active-price__value price-up"
         data-test="active-price-value">
-        {{ `2.78` | currency:'BRL':'symbol':'1.2-2' }}
+        {{ quote.price | currency: 'BRL' : 'symbol' : '1.2-2' }}
       </div>
     </div>
   </div>
