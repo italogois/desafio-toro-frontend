@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { QuoteItem } from '../types/quote';
 @Component({
   selector: 'app-quote-item',
   imports: [CommonModule],
@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuoteItemComponent {
-  @Input() quote: any;
+  @Input() quote: QuoteItem;
 }
