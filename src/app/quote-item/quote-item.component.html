@@ -16,14 +16,23 @@
       </div>
 
       <div
-        class="active-price__value price-up"
+        class="active-price__value"
+        [class.price-up]="!quote.priceDown"
+        [class.price-down]="quote.priceDown"
         data-test="active-price-value">
         {{ quote.price | currency: 'BRL' : 'symbol' : '1.2-2' }}
+
+        <img
+          width="20"
+          height="20"
+          [src]="quote.priceDown ?`/arrow-down.png` : `/arrow-up.png`"
+          alt="arrow down" />
       </div>
     </div>
   </div>
 
   <img
+    class="quote-item__footer"
     src="/quote-item-footer.png"
     alt="quote grafico do ativo" />
 </div>

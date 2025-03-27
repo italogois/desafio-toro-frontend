@@ -7,4 +7,5 @@ export type QuoteItem = {
   stockMarket: string;
   price: number;
   timestamp: number;
+  priceDown: boolean | null;
 };

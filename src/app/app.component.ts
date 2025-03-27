@@ -35,6 +35,10 @@ export class AppComponent implements OnInit {
     const existingQuoteIndex = this.quotes.findIndex((q) => q.stockMarket === transformedQuote.stockMarket);
 
     if (existingQuoteIndex !== -1) {
+      const currentPrice = this.quotes[existingQuoteIndex].price;
+
+      transformedQuote.priceDown = transformedQuote.price < currentPrice;
+
       this.quotes[existingQuoteIndex] = transformedQuote;
     } else {
       this.quotes.push(transformedQuote);
@@ -51,6 +55,7 @@ export class AppComponent implements OnInit {
         stockMarket: quoteKey,
         price: quote[quoteKey],
         timestamp: quote.timestamp,
+        priceDown: null,
       };
 
       this.addQuote(transformedQuote);
