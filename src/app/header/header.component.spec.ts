@@ -11,6 +11,7 @@ describe('HeaderComponent', () => {
       schemas: [NO_ERRORS_SCHEMA],
       imports: [HeaderComponent],
     });
+
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
