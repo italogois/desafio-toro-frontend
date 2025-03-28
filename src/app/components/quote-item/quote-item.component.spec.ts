@@ -4,8 +4,16 @@ import { QuoteItemComponent } from './quote-item.component';
 import { CurrencyPipe } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { QuoteItem } from '../../types/quote';
 
 registerLocaleData(localePt);
+
+const quoteItemMock: QuoteItem = {
+  stockMarket: 'BBDC4',
+  price: 2.78,
+  priceDown: false,
+  timestamp: 1716921600000,
+};
 
 describe('QuoteItemComponent', () => {
   let component: QuoteItemComponent;
@@ -19,6 +27,8 @@ describe('QuoteItemComponent', () => {
     });
     fixture = TestBed.createComponent(QuoteItemComponent);
     component = fixture.componentInstance;
+    component.quote = quoteItemMock;
+    fixture.detectChanges();
   });
 
   it('can load instance', () => {
@@ -35,6 +45,7 @@ describe('QuoteItemComponent', () => {
 
   it('should render active price label and value', () => {
     const element = fixture.nativeElement as HTMLElement;
+    const mockPrice = quoteItemMock.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     fixture.detectChanges();
 
@@ -42,6 +53,6 @@ describe('QuoteItemComponent', () => {
     const activePriceValue = element.querySelector('[data-test="active-price-value"]') as HTMLDivElement;
 
     expect(activePriceLabel.textContent).toContain('Preço do ativo');
-    expect(activePriceValue.textContent?.trim().normalize('NFKC')).toStrictEqual('R$ 2,78');
+    expect(activePriceValue.textContent?.trim()).toStrictEqual(mockPrice);
   });
 });
