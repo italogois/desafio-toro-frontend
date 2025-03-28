@@ -6,11 +6,7 @@ import { QuoteResponse } from '../types/quote';
   providedIn: 'root',
 })
 export class QuoteService {
-  constructor() {}
-
-  webSocket = 'ws://localhost:8080/quotes';
-
   connect() {
-    return webSocket<QuoteResponse>(this.webSocket);
+    return webSocket<QuoteResponse>('ws://localhost:8080/quotes');
   }
 }
