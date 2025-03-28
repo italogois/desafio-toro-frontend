@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Sort } from '../../types/sort';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header-page',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header-page.component.html',
   styleUrl: './header-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
