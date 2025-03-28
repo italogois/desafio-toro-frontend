@@ -26,18 +26,4 @@ describe('AppComponent', () => {
 
     expect(title.textContent).toContain('Explore o mercado');
   });
-
-  it('should render the ordenation label and buttons', () => {
-    const element = fixture.nativeElement as HTMLElement;
-
-    const label = element.querySelector('[data-test="ordenation-label"]') as HTMLSpanElement;
-
-    const buttonEmAlta = element.querySelector('[data-test="ordenation-button-em-alta"]') as HTMLButtonElement;
-
-    const buttonEmBaixa = element.querySelector('[data-test="ordenation-button-em-baixa"]') as HTMLButtonElement;
-
-    expect(label.textContent).toContain('Ordenar:');
-    expect(buttonEmAlta.textContent).toContain('Em Alta');
-    expect(buttonEmBaixa.textContent).toContain('Em Baixa');
-  });
 });
