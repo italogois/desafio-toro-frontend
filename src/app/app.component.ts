@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     this.sort = sortParam;
   }
 
-  sortQuotes(quotes: QuoteItem[]) {
+  private sortQuotes(quotes: QuoteItem[]) {
     if (this.sort === 'em-alta') {
       quotes.sort((a, b) => b.price - a.price);
     } else {
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     return quotes;
   }
 
-  addQuote(transformedQuote: QuoteItem) {
+  private addQuote(transformedQuote: QuoteItem) {
     const existingQuoteIndex = this.quotes.findIndex((q) => q.stockMarket === transformedQuote.stockMarket);
 
     if (existingQuoteIndex !== -1) {
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     this.quotes = this.sortQuotes(this.quotes);
   }
 
-  initQuoteWebSocket() {
+  private initQuoteWebSocket() {
     this.quoteService.connect().subscribe((quote: QuoteResponse) => {
       const quoteKey = Object.keys(quote)[0];
 
