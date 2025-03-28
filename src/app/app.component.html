@@ -1,35 +1,9 @@
 <app-header />
 
 <main class="container">
-  <div class="header-page">
-    <h1
-      class="title-page"
-      data-test="title-page">
-      Explore o mercado
-    </h1>
-
-    <div class="ordenation">
-      <span data-test="ordenation-label">Ordenar:</span>
-
-      <div class="buttons">
-        <button
-          class="ordenation-button"
-          [class.active]="sort === 'em-alta'"
-          data-test="ordenation-button-em-alta"
-          (click)="sortBy('em-alta')">
-          Em Alta
-        </button>
-
-        <button
-          class="ordenation-button"
-          [class.active]="sort === 'em-baixa'"
-          data-test="ordenation-button-em-baixa"
-          (click)="sortBy('em-baixa')">
-          Em Baixa
-        </button>
-      </div>
-    </div>
-  </div>
+  <app-header-page
+    [currentSort]="sort"
+    (sortByEvent)="sortBy($event)" />
 
   <div class="quote-items">
     @for (quote of quotes; track quote.timestamp) {

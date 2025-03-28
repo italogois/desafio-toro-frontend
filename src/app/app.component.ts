@@ -4,10 +4,10 @@ import { QuoteItemComponent } from './quote-item/quote-item.component';
 import { QuoteService } from './service/quote.service';
 import { Sort } from './types/sort';
 import { QuoteItem, QuoteResponse } from './types/quote';
-
+import { HeaderPageComponent } from './header-page/header-page.component';
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, QuoteItemComponent],
+  imports: [HeaderComponent, QuoteItemComponent, HeaderPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
