@@ -1,10 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { QuoteItemComponent } from './quote-item/quote-item.component';
+import { HeaderComponent } from './components/header/header.component';
+import { QuoteItemComponent } from './components/quote-item/quote-item.component';
 import { QuoteService } from './service/quote.service';
 import { Sort } from './types/sort';
 import { QuoteItem, QuoteResponse } from './types/quote';
-import { HeaderPageComponent } from './header-page/header-page.component';
+import { HeaderPageComponent } from './components/header-page/header-page.component';
 @Component({
   selector: 'app-root',
   imports: [HeaderComponent, QuoteItemComponent, HeaderPageComponent],

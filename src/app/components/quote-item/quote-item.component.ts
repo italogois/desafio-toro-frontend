@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QuoteItem } from '../types/quote';
+import { QuoteItem } from '../../types/quote';
 @Component({
   selector: 'app-quote-item',
   imports: [CommonModule],

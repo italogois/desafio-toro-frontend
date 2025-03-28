@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Sort } from '../types/sort';
+import { Sort } from '../../types/sort';
 
 @Component({
   selector: 'app-header-page',
